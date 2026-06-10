@@ -1,1 +1,1 @@
-# sppa-business
+sppa-business

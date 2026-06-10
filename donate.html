@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate — SPPA Business Venture Ltd</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/donate.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="index.html" class="topbar-brand">
+    <img src="assets/logo.png" alt="SPPA Logo" class="topbar-logo">
+    <div>
+      <div class="topbar-name">SPPA Business Venture Ltd</div>
+      <div class="topbar-sub">Workforce &amp; Consultancy</div>
+    </div>
+  </a>
+  <a href="index.html" class="topbar-back">← Back to Website</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-eyebrow">❤ Support Our Work</div>
+    <h1>Make a Contribution</h1>
+    <p>Your donation helps SPPA build skills, create employment, and empower communities across Kenya.</p>
+  </div>
+</div>
+
+<!-- IMPACT STRIP -->
+<div class="impact-strip">
+  <div class="impact-inner">
+    <div class="impact-item">
+      <div class="impact-num">1,200+</div>
+      <div class="impact-lbl">People trained &amp; placed</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">3</div>
+      <div class="impact-lbl">Counties reached</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">100%</div>
+      <div class="impact-lbl">ESG-aligned programs</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- FORM CARD -->
+  <div class="form-card">
+    <div class="form-card-header">
+      <div class="form-card-title">Contribution Details</div>
+      <div class="form-card-sub">All contributions go directly toward workforce training and community programs.</div>
+    </div>
+    <div class="form-body">
+
+      <!-- AMOUNT -->
+      <div class="amount-label">Choose an Amount (KSH)</div>
+      <div class="amount-grid">
+        <button class="amount-btn active" onclick="selectAmount(this, 500)">
+          <span class="ksh">KSH</span><span class="val">500</span><span class="desc">Starter</span>
+        </button>
+        <button class="amount-btn" onclick="selectAmount(this, 1000)">
+          <span class="ksh">KSH</span><span class="val">1,000</span><span class="desc">Supporter</span>
+        </button>
+        <button class="amount-btn" onclick="selectAmount(this, 2500)">
+          <span class="ksh">KSH</span><span class="val">2,500</span><span class="desc">Champion</span>
+        </button>
+        <button class="amount-btn" onclick="selectAmount(this, 5000)">
+          <span class="ksh">KSH</span><span class="val">5,000</span><span class="desc">Partner</span>
+        </button>
+        <button class="amount-btn" onclick="selectAmount(this, 10000)">
+          <span class="ksh">KSH</span><span class="val">10,000</span><span class="desc">Patron</span>
+        </button>
+        <button class="amount-btn" onclick="selectAmount(this, 0)">
+          <span class="ksh">&nbsp;</span><span class="val" style="font-size:13px;">Custom</span><span class="desc">Any amount</span>
+        </button>
+      </div>
+      <div class="custom-wrap">
+        <span class="custom-prefix">KSH</span>
+        <input type="number" id="customAmount" class="custom-input" placeholder="Enter custom amount" min="1" value="500">
+      </div>
+
+      <!-- DONOR INFO -->
+      <div class="field-group">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" placeholder="e.g. John" id="fname">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" placeholder="e.g. Kamau" id="lname">
+        </div>
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com" id="email">
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+254 7XX XXX XXX" id="phone">
+      </div>
+      <div class="field">
+        <label>Organisation / Company <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+        <input type="text" placeholder="Leave blank if contributing as an individual">
+      </div>
+      <div class="field">
+        <label>Message / Purpose <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+        <input type="text" placeholder="e.g. In support of Turkana training program">
+      </div>
+
+      <div class="divider-line"></div>
+
+      <!-- PAYMENT METHOD -->
+      <div class="amount-label" style="margin-bottom:12px;">Select Payment Method</div>
+      <div class="payment-tabs">
+        <button class="pay-tab active" onclick="switchPay(this,'mpesa')">
+          <span class="pay-icon">📱</span>M-Pesa
+        </button>
+        <button class="pay-tab" onclick="switchPay(this,'bank')">
+          <span class="pay-icon">🏦</span>Bank Transfer
+        </button>
+        <button class="pay-tab" onclick="switchPay(this,'card')">
+          <span class="pay-icon">💳</span>Card
+        </button>
+      </div>
+
+      <!-- M-PESA -->
+      <div class="pay-panel active" id="panel-mpesa">
+        <strong>M-Pesa Paybill Instructions</strong>
+        <div class="pay-row"><span>Paybill Number</span><span class="pay-highlight">400200</span></div>
+        <div class="pay-row"><span>Account Number</span><span class="pay-highlight">SPPA-DONATE</span></div>
+        <div class="pay-row"><span>Amount</span><span class="pay-highlight" id="mpesa-amount">KSH 500</span></div>
+        <p class="pay-note">Go to M-Pesa → Lipa na M-Pesa → Pay Bill, enter the above details, then enter your confirmation code below and click Confirm.</p>
+        <div class="pay-input-wrap">
+          <label>M-Pesa Confirmation Code</label>
+          <input type="text" placeholder="e.g. QGH7X2P3K1" id="mpesa-code" style="text-transform:uppercase;">
+        </div>
+      </div>
+
+      <!-- BANK -->
+      <div class="pay-panel" id="panel-bank">
+        <strong>Bank Transfer Details</strong>
+        <div class="pay-row"><span>Bank Name</span><span class="pay-highlight">Equity Bank Kenya</span></div>
+        <div class="pay-row"><span>Account Name</span><span class="pay-highlight">SPPA Business Venture Ltd</span></div>
+        <div class="pay-row"><span>Account Number</span><span class="pay-highlight">0110292791850</span></div>
+        <div class="pay-row"><span>Branch</span><span class="pay-highlight">Lodwar Branch</span></div>
+        <div class="pay-row"><span>Swift Code</span><span class="pay-highlight">EQBLKENA</span></div>
+        <p class="pay-note">After transferring, enter your bank reference number below and submit.</p>
+        <div class="pay-input-wrap">
+          <label>Bank Reference / Transaction ID</label>
+          <input type="text" placeholder="e.g. TXN-20260610-001" id="bank-ref">
+        </div>
+      </div>
+
+      <!-- CARD -->
+      <div class="pay-panel" id="panel-card">
+        <strong>Card Payment</strong>
+        <p class="pay-note" style="margin-bottom:14px;">We accept Visa and Mastercard. Your details are encrypted and never stored.</p>
+        <div class="pay-input-wrap">
+          <label>Card Number</label>
+          <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="card-num" oninput="formatCard(this)">
+        </div>
+        <div class="card-row">
+          <div class="pay-input-wrap">
+            <label>Expiry Date</label>
+            <input type="text" placeholder="MM / YY" maxlength="7" id="card-exp" oninput="formatExpiry(this)">
+          </div>
+          <div class="pay-input-wrap">
+            <label>CVV</label>
+            <input type="password" placeholder="•••" maxlength="4" id="card-cvv">
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-line"></div>
+
+      <!-- ANONYMOUS -->
+      <label class="anon-row">
+        <input type="checkbox" id="anon">
+        Make my contribution anonymous (your name won't be listed publicly)
+      </label>
+
+      <!-- SUBMIT -->
+      <button class="submit-btn" onclick="submitDonation()">
+        <span>✓</span> Confirm Contribution
+      </button>
+      <div class="secure-note">🔒 Secure &amp; Encrypted &nbsp;|&nbsp; REG No: PVT-271J9M9R</div>
+
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="side-card">
+      <div class="side-card-header">Your Impact</div>
+      <div class="side-card-body">
+        <div class="impact-tier">
+          <div class="tier-amount">KSH 500</div>
+          <div class="tier-desc">Covers training materials for one participant</div>
+        </div>
+        <div class="impact-tier">
+          <div class="tier-amount">KSH 1,000</div>
+          <div class="tier-desc">Funds a full day of vocational training</div>
+        </div>
+        <div class="impact-tier">
+          <div class="tier-amount">KSH 2,500</div>
+          <div class="tier-desc">Sponsors a community outreach session</div>
+        </div>
+        <div class="impact-tier">
+          <div class="tier-amount">KSH 5,000</div>
+          <div class="tier-desc">Supports a week of workforce placement activities</div>
+        </div>
+        <div class="impact-tier">
+          <div class="tier-amount">KSH 10,000+</div>
+          <div class="tier-desc">Sponsors a full training cohort — your name as a program partner</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-card-header">Why Contribute?</div>
+      <div class="side-card-body">
+        <div class="trust-item"><span class="t-icon">🏛️</span> Registered Kenyan enterprise — REG No: PVT-271J9M9R</div>
+        <div class="trust-item"><span class="t-icon">📋</span> ESG-aligned programs with full accountability</div>
+        <div class="trust-item"><span class="t-icon">🤝</span> Partnered with government, universities &amp; development bodies</div>
+        <div class="trust-item"><span class="t-icon">📍</span> Operating in underserved areas — Turkana &amp; beyond</div>
+        <div class="trust-item"><span class="t-icon">📧</span> Donors receive a receipt &amp; impact update</div>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-card-header">Have Questions?</div>
+      <div class="side-card-body">
+        <div class="contact-mini">
+          📞 <a href="tel:+254707445661">+254 707 445 661</a><br>
+          ✉️ <a href="mailto:sppabusiness26@gmail.com">sppabusiness26@gmail.com</a><br>
+          🌐 <a href="https://sppalliance.org" target="_blank">sppalliance.org</a><br>
+          📍 Turkana | Across Kenya
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-box">
+    <div class="success-icon">🎉</div>
+    <h2>Thank You!</h2>
+    <p>Your contribution has been received. SPPA will send a confirmation and receipt to your email shortly.</p>
+    <div class="success-ref" id="successRef">Ref: SPPA-2026-0001</div>
+    <p style="font-size:12px; color:var(--text-muted); margin-bottom:20px;">Building Skills · Empowering Communities · Shared Prosperity</p>
+    <button class="success-close" id="closeSuccess">Close</button>
+  </div>
+</div>
+
+<script src="js/donate.js"></script>
+</body>
+</html>
